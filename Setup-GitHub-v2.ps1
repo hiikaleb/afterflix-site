@@ -1,4 +1,4 @@
-﻿param(
+param(
     [string]$ProjectPath = "",
     [ValidateSet("menu","publish","new","update")]
     [string]$Mode = "menu"
@@ -421,11 +421,18 @@ function Create-GitHubRepository {
 
     $flag = if ($visibility -eq "1") { "--public" } else { "--private" }
 
-    Write-Info "Criando repositorio no GitHub e enviando o projeto..."
-    gh repo create "$RepoName" $flag --source=. --remote=origin --push
+    Write-Info "Criando repositorio no GitHub..."
+    gh repo create "$RepoName" $flag --source=. --remote=origin
 
     if ($LASTEXITCODE -ne 0) {
-        throw "Nao foi possivel criar/publicar o repositorio."
+        throw "Nao foi possivel criar o repositorio."
+    }
+
+    Write-Info "Enviando para origin/main..."
+    git push -u origin main
+
+    if ($LASTEXITCODE -ne 0) {
+        throw "git push falhou."
     }
 
     Write-Ok "Projeto publicado no GitHub."
@@ -485,20 +492,18 @@ function Publish-Project([string]$Path, [bool]$InstallDeps = $true) {
 
     $committed = Commit-Project
 
-    if (-not $committed) {
-        $answer = Read-Host "Mesmo sem novo commit, continuar para o GitHub? [S/n]"
-        if ($answer -match "^(n|nao|no)$") {
-            return
-        }
-    }
-
     $remote = git remote get-url origin 2>$null
 
     if ([string]::IsNullOrWhiteSpace($remote)) {
+        Write-Info "Este projeto ainda nao possui um repositorio remoto."
         $repoName = Get-RepoName
         Create-GitHubRepository $repoName
-    } else {
+    }
+    elseif ($committed) {
         Push-ExistingRepository
+    }
+    else {
+        Write-Info "Nenhuma alteracao nova. Nada para enviar."
     }
 
     Write-Host ""
