@@ -403,9 +403,9 @@ function Get-RepoName {
 function Create-GitHubRepository {
     param([string]$RepoName)
 
-    $remote = git remote get-url origin 2>$null
-
-    if (-not [string]::IsNullOrWhiteSpace($remote)) {
+    $remotes = git remote
+    if ($remotes -contains "origin") {
+        $remote = git remote get-url origin
         Write-Ok "Remote origin ja existe: $remote"
         return
     }
@@ -439,9 +439,9 @@ function Create-GitHubRepository {
 }
 
 function Push-ExistingRepository {
-    $remote = git remote get-url origin 2>$null
+    $remotes = git remote
 
-    if ([string]::IsNullOrWhiteSpace($remote)) {
+    if (-not ($remotes -contains "origin")) {
         Write-Warn "Este repositorio ainda nao possui origin."
         $repoName = Get-RepoName
         Create-GitHubRepository $repoName
@@ -492,9 +492,9 @@ function Publish-Project([string]$Path, [bool]$InstallDeps = $true) {
 
     $committed = Commit-Project
 
-    $remote = git remote get-url origin 2>$null
+    $remotes = git remote
 
-    if ([string]::IsNullOrWhiteSpace($remote)) {
+    if (-not ($remotes -contains "origin")) {
         Write-Info "Este projeto ainda nao possui um repositorio remoto."
         $repoName = Get-RepoName
         Create-GitHubRepository $repoName
