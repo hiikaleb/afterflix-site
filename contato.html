@@ -12,18 +12,25 @@
 <header class="site-header solid" id="header">
   <div class="header-in">
     <a href="index.html#inicio" class="brand"><img src="img/logo-header.webp" width="93" height="45" alt="Afterflix"></a>
-    <button class="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav"><span></span></button>
-    <nav id="nav" aria-label="Principal">
+    <nav id="nav" class="nav-pill" aria-label="Principal">
+      <span class="nav-pill-glider" aria-hidden="true"></span>
       <a href="index.html#inicio">Início</a>
-      <a href="index.html#">Projetos</a>
-      <a href="contato.html" aria-current="page">Contato</a>
-      <a href="index.html#">Downloads</a>
+      <a href="index.html#curso">Curso</a>
+      <a href="index.html#beneficios">Ao Vivo</a>
+      <a href="index.html#pack">Pack Supremo</a>
+      <a href="index.html#cat-5">Projetos</a>
+      <a href="index.html#planos">Grupo Exclusivo</a>
+      <a href="contato.html" class="is-active" aria-current="page">Contato</a>
+      <a href="index.html#pack">Downloads</a>
     </nav>
-    <a class="login corner" href="#">
-      <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="16" fill="#ededeb" opacity=".35"/><circle cx="16" cy="12.500" r="5" fill="#ededeb"/><path d="M6 27c1.500-5 5.500-7.500 10-7.500S24.500 22 26 27z" fill="#ededeb"/></svg>
-      <span>Login</span>
-    </a>
-  </div>
+    <div class="header-actions">
+      <a class="icon-btn" href="index.html#curso" aria-label="Explorar aulas">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      </a>
+      <button type="button" class="header-login login-trigger" aria-haspopup="dialog" aria-controls="login-modal">Entrar</button>
+      <a class="btn-header-cta" href="index.html#planos">Assinar</a>
+      <button type="button" class="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav"><span></span></button>
+    </div>
   </div>
 </header>
 
@@ -87,6 +94,26 @@
   <p class="f-info">Informações para contato:<br>(21) 99603-0654<br><a href="mailto:produtorashadow@gmail.com">produtorashadow@gmail.com</a></p>
   <p class="f-legal"><a href="#">Termos de Uso</a><a href="#">Políticas de troca, devolução e reembolso</a><a href="#">Política de Privacidade</a><a href="#">Política de Entrega</a></p>
 </footer>
+
+<div class="af-modal" id="login-modal" role="dialog" aria-modal="true" aria-labelledby="login-modal-title" hidden>
+  <div class="af-modal-box af-modal-sm">
+    <div class="af-modal-head">
+      <h2 id="login-modal-title">Área do Assinante</h2>
+      <button type="button" class="af-close" data-close-modal aria-label="Fechar">×</button>
+    </div>
+    <form class="af-form" id="login-form">
+      <label>E-mail cadastrado
+        <input type="email" class="af-input" required placeholder="seuemail@exemplo.com">
+      </label>
+      <label>Senha
+        <input type="password" class="af-input" required placeholder="••••••••">
+      </label>
+      <p class="af-form-msg" id="login-msg" hidden></p>
+      <button type="submit" class="btn btn-red af-submit">Entrar na plataforma</button>
+    </form>
+    <p class="af-modal-note">Ainda não tem conta? <a href="index.html#planos" data-close-modal>Escolha seu plano</a></p>
+  </div>
+</div>
 
 <script src="js/main.js"></script>
 </body>

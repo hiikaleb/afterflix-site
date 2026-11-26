@@ -13,39 +13,151 @@
 <header class="site-header" id="header">
   <div class="header-in">
     <a href="#inicio" class="brand"><img src="img/logo-header.webp" width="93" height="45" alt="Afterflix"></a>
-    <button class="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav"><span></span></button>
-    <nav id="nav" aria-label="Principal">
-      <a href="#inicio">Início</a>
-      <a href="#">Projetos</a>
+    <nav id="nav" class="nav-pill" aria-label="Principal">
+      <span class="nav-pill-glider" aria-hidden="true"></span>
+      <a href="#inicio" class="is-active">Início</a>
+      <a href="#curso">Curso</a>
+      <a href="#beneficios">Ao Vivo</a>
+      <a href="#pack">Pack Supremo</a>
+      <a href="#cat-5">Projetos</a>
+      <a href="#planos">Grupo Exclusivo</a>
       <a href="contato.html">Contato</a>
-      <a href="#">Downloads</a>
+      <a href="#pack" data-no-spy="true">Downloads</a>
     </nav>
-    <a class="login corner" href="#">
-      <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="16" fill="#ededeb" opacity=".35"/><circle cx="16" cy="12.500" r="5" fill="#ededeb"/><path d="M6 27c1.500-5 5.500-7.500 10-7.500S24.500 22 26 27z" fill="#ededeb"/></svg>
-      <span>Login</span>
-    </a>
-  </div>
+    <div class="header-actions">
+      <div class="search-wrap" id="search-wrap">
+        <button type="button" class="search-trigger" id="search-trigger" aria-label="Buscar aulas" aria-expanded="false" aria-controls="search-inline-input">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+        </button>
+        <input type="search" class="search-inline-input" id="search-inline-input" placeholder="Buscar aulas" aria-label="Buscar aulas" autocomplete="off">
+        <button type="button" class="search-clear" id="search-clear" aria-label="Fechar busca" tabindex="-1">×</button>
+        <div class="search-dropdown" id="search-dropdown" hidden>
+          <div class="search-chips" id="search-chips">
+            <button type="button" data-query="Glitch">Glitch</button>
+            <button type="button" data-query="Shakes">Shakes</button>
+            <button type="button" data-query="TikTok">TikTok</button>
+            <button type="button" data-query="3D">3D</button>
+            <button type="button" data-query="After">After Effects</button>
+          </div>
+          <ul class="af-results" id="search-results"></ul>
+        </div>
+      </div>
+      <button type="button" class="header-login login-trigger" aria-haspopup="dialog" aria-controls="login-modal">Entrar</button>
+      <a class="btn-header-cta" href="#planos">Assinar</a>
+      <button type="button" class="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav"><span></span></button>
+    </div>
   </div>
 </header>
 
 <main id="inicio">
 
 <!-- ============ HERO ============ -->
-<section class="hero">
-  <div class="hero-bg" aria-hidden="true">
-    <img src="img/hero-bg.jpg" alt="" width="1644" height="840">
-    <video src="media/hero.mp4" poster="img/hero-bg.jpg" autoplay muted loop playsinline preload="metadata"></video>
-  </div>
-  <div class="hero-content">
-    <p class="premium"><img src="img/logo-minimal.webp" width="40" height="40" alt=""><span>PREMIUM</span></p>
-    <h1><img src="img/hero-titulo.webp" width="567" height="127" alt="Edições Hypadas"></h1>
-    <p class="destaque"><img src="img/top01.webp" width="41" height="45" alt="Top 01"><span>Aula em Destaque</span></p>
-    <p class="desc">Aprenda de uma vez por todas a fazer o estilo de edição de Reels Virais, Iman Gadzhi, Magnates Media... Que está muito em alta!</p>
-    <div class="btns">
-      <a class="btn btn-red" href="#planos"><svg viewBox="0 0 14 14"><path d="M6 1h2v5h5v2H8v5H6V8H1V6h5z"/></svg>Assinar</a>
-      <a class="btn btn-grey" href="#curso"><svg viewBox="0 0 14 14"><path d="M3 1l10 6-10 6z"/></svg>Assistir</a>
+<section class="hero" aria-label="Destaques principais">
+  <div class="hero-stage">
+    <!-- Slide 0: Do Prompt ao Frame -->
+    <div class="hero-slide is-active" data-slide="0">
+      <div class="hero-bg hero-bg-prompt" aria-hidden="true">
+        <div class="prompt-glow"></div>
+        <div class="prompt-trail"></div>
+        <span class="prompt-watermark">AFTERFLIX</span>
+        <div class="prompt-ghost" aria-hidden="true">
+          <span>DO PR<em>O</em>MPT</span>
+          <span>AO FRAME</span>
+        </div>
+        <div class="prompt-playhead"></div>
+        <div class="prompt-dots"><span></span><span></span><span></span></div>
+        <div class="prompt-scene-stage" aria-hidden="true">
+          <div class="prompt-code-panel">
+            <span>Analisando referências visuais e keyframes...</span>
+            <span>Higgsfield + After Effects integrado · 60fps</span>
+            <span>Aplicando câmera 3D, curvas e motion blur</span>
+          </div>
+          <div class="prompt-render-panel">
+            <div class="render-grid"></div>
+            <div class="render-block b1"></div>
+            <div class="render-block b2"></div>
+            <div class="render-block b3"></div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-content">
+        <p class="premium-kicker">
+          <svg class="kicker-a" viewBox="0 0 20 20" aria-hidden="true"><path d="M8.6 2h2.8L17 18h-3.1l-1.2-3.5H7.3L6.1 18H3L8.6 2zm-.5 9.8h3.8L10 6.1l-1.9 5.7z"/></svg>
+          <span>PREMIUM · SÉRIE</span>
+        </p>
+        <h1 class="hero-display-title">DO PR<em>O</em>MPT<br>AO FRAME</h1>
+        <p class="hero-meta">
+          <span>Novo</span>
+          <span>6 aulas</span>
+          <span>IA + After Effects</span>
+        </p>
+        <p class="desc">Do prompt ao frame final: 6 aulas criando animações com IA, usando GPT-6 Astra e Opus 5.5 direto no After Effects.</p>
+        <div class="btns">
+          <a class="btn btn-white" href="#planos">
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 12.5h12V14H2v-1.5zM2 5l3.5 3.5L8 3l2.5 5.5L14 5l-1 6H3L2 5z"/></svg>
+            Assinar
+          </a>
+          <a class="btn btn-glass" href="#curso">
+            <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 1l10 6-10 6z"/></svg>
+            Assistir
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 1: Edições Hypadas -->
+    <div class="hero-slide" data-slide="1" aria-hidden="true">
+      <div class="hero-bg" aria-hidden="true">
+        <img src="img/hero-bg.jpg" alt="" width="1644" height="840">
+        <video src="media/hero.mp4" poster="img/hero-bg.jpg" muted loop playsinline preload="metadata"></video>
+      </div>
+      <div class="hero-content">
+        <p class="premium"><img src="img/logo-minimal.webp" width="40" height="40" alt=""><span>PREMIUM</span></p>
+        <h2 class="hero-img-title"><img src="img/hero-titulo.webp" width="567" height="127" alt="Edições Hypadas"></h2>
+        <p class="destaque"><img src="img/top01.webp" width="41" height="45" alt="Top 01"><span>Aula em Destaque</span></p>
+        <p class="desc">Aprenda de uma vez por todas a fazer o estilo de edição de Reels Virais, Iman Gadzhi, Magnates Media... Que está muito em alta!</p>
+        <div class="btns">
+          <a class="btn btn-white" href="#planos">
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 12.5h12V14H2v-1.5zM2 5l3.5 3.5L8 3l2.5 5.5L14 5l-1 6H3L2 5z"/></svg>
+            Assinar
+          </a>
+          <a class="btn btn-glass" href="#curso">
+            <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 1l10 6-10 6z"/></svg>
+            Assistir
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Floating Side Rail: Novidade Plugins + Slide Switcher -->
+    <div class="hero-aside">
+      <aside class="plugins-card" aria-label="Novidade Afterflix Plugins">
+        <div class="plugins-head">
+          <div class="plugins-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><rect x="4" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.5"/><path d="M16.75 13.5v6.5M13.5 16.75h6.5"/></svg>
+          </div>
+          <div>
+            <p class="plugins-kicker"><span class="plugins-dot" aria-hidden="true"></span>NOVIDADE</p>
+            <h2 class="plugins-title">Afterflix Plugins</h2>
+          </div>
+        </div>
+        <p class="plugins-txt">10 plugins para After Effects e Premiere, feitos pela Afterflix. Instala com um clique.</p>
+        <button type="button" class="plugins-cta" id="open-plugins-modal">Conhecer os plugins <span aria-hidden="true">→</span></button>
+      </aside>
+
+      <div class="hero-tabs" role="tablist" aria-label="Destaques do banner">
+        <button type="button" class="hero-tab" role="tab" aria-selected="false" data-target="1">
+          <span>Edições Hypadas</span>
+          <i class="tab-bar"></i>
+        </button>
+        <button type="button" class="hero-tab is-active" role="tab" aria-selected="true" data-target="0">
+          <span>Do Prompt ao Frame</span>
+          <i class="tab-bar"></i>
+        </button>
+      </div>
     </div>
   </div>
+
   <div class="hero-row">
     <h2 class="row-title"><svg class="ico" viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.900 20.600l1.400-6.800L2.200 9.100l6.900-.8z"/></svg>Mais desejados</h2>
     <div class="row">
@@ -57,7 +169,7 @@
 </section>
 
 <!-- ============ BENEFÍCIOS ============ -->
-<section class="beneficios" aria-label="Benefícios">
+<section class="beneficios" id="beneficios" aria-label="Benefícios">
   <img src="img/beneficio-1.webp" width="335" height="335" alt="Centenas de aulas" loading="lazy" decoding="async"><img src="img/beneficio-2.webp" width="335" height="335" alt="Pacote de 1TB" loading="lazy" decoding="async"><img src="img/beneficio-3.webp" width="335" height="335" alt="Aulas ao vivo" loading="lazy" decoding="async"><img src="img/beneficio-4.webp" width="335" height="335" alt="Certificado de conclusão" loading="lazy" decoding="async">
 </section>
 
@@ -187,7 +299,7 @@
       </figure>
     </div>
     <button class="sl-btn next" aria-label="Próximo depoimento"><svg viewBox="0 0 24 24"><path d="M9 4l8 8-8 8"/></svg></button>
-    <div class="dots"><i class="on"></i><i></i><i></i></div>
+    <div class="dots"><i class="on"></i></div>
   </div>
 
   <p class="ainda">Ainda não é<br>Assinante?</p>
@@ -210,6 +322,71 @@
   <p class="f-info">Informações para contato:<br>(21) 99603-0654<br><a href="mailto:produtorashadow@gmail.com">produtorashadow@gmail.com</a></p>
   <p class="f-legal"><a href="#">Termos de Uso</a><a href="#">Políticas de troca, devolução e reembolso</a><a href="#">Política de Privacidade</a><a href="#">Política de Entrega</a></p>
 </footer>
+
+<div class="af-modal" id="plugins-modal" role="dialog" aria-modal="true" aria-labelledby="plugins-modal-title" hidden>
+  <div class="af-modal-box">
+    <div class="af-modal-head">
+      <h2 id="plugins-modal-title">Afterflix Plugins · 10 ferramentas exclusivas</h2>
+      <button type="button" class="af-close" data-close-modal aria-label="Fechar">×</button>
+    </div>
+    <p class="af-modal-sub">Pacote oficial desenvolvido pela Afterflix para After Effects e Premiere Pro, com instalador em 1 clique incluso na assinatura.</p>
+    <ul class="af-plugin-list">
+      <li><strong>Shadow Shake Pro</strong> — Shakes orgânicos com motion blur real</li>
+      <li><strong>OneClick Glow</strong> — Glow cinematográfico sem peso na timeline</li>
+      <li><strong>Flow Curves</strong> — Curvas rápidas de velocidade e easing</li>
+      <li><strong>Auto Text Reveal</strong> — Animações de texto estilo Reels virais</li>
+      <li><strong>Vortex Glitch</strong> — Distorções e RGB split sincronizáveis</li>
+      <li><strong>Film Looks &amp; Grain</strong> — Tratamento de cor e grão 35mm</li>
+    </ul>
+    <div class="af-modal-foot">
+      <a class="btn btn-white" href="#planos" data-close-modal>Assinar com Plugins</a>
+      <a class="btn btn-glass" href="#pack" data-close-modal>Ver Pack Supremo</a>
+    </div>
+  </div>
+</div>
+
+<div class="af-modal" id="login-modal" role="dialog" aria-modal="true" aria-labelledby="login-modal-title" hidden>
+  <div class="af-modal-box af-modal-sm">
+    <div class="af-modal-head">
+      <h2 id="login-modal-title">Área do Assinante</h2>
+      <button type="button" class="af-close" data-close-modal aria-label="Fechar">×</button>
+    </div>
+    <form class="af-form" id="login-form">
+      <label>E-mail cadastrado
+        <input type="email" class="af-input" required placeholder="seuemail@exemplo.com">
+      </label>
+      <label>Senha
+        <input type="password" class="af-input" required placeholder="••••••••">
+      </label>
+      <p class="af-form-msg" id="login-msg" hidden></p>
+      <button type="submit" class="btn btn-red af-submit">Entrar na plataforma</button>
+    </form>
+    <p class="af-modal-note">Ainda não tem conta? <a href="#planos" data-close-modal>Escolha seu plano</a></p>
+  </div>
+</div>
+
+<div class="af-modal" id="lesson-modal" role="dialog" aria-modal="true" aria-labelledby="lesson-modal-title" hidden>
+  <div class="af-modal-box">
+    <div class="af-modal-head">
+      <div>
+        <p class="af-lesson-cat" id="lesson-modal-cat">Curso Afterflix</p>
+        <h2 id="lesson-modal-title">Aula</h2>
+      </div>
+      <button type="button" class="af-close" data-close-modal aria-label="Fechar">×</button>
+    </div>
+    <div class="af-lesson-grid">
+      <div class="af-lesson-cover"><img id="lesson-modal-img" src="img/d-d504d8-daf6832-01.webp" alt=""></div>
+      <div class="af-lesson-info">
+        <p class="af-modal-sub" id="lesson-modal-desc">Aula prática passo a passo no After Effects com arquivos de projeto, presets inclusos e suporte direto da equipe Shadow Producer.</p>
+        <p class="af-lesson-meta">Acesso imediato · Projeto editável incluso · Full HD</p>
+        <div class="af-modal-foot">
+          <a class="btn btn-white" href="#planos" data-close-modal>Assinar para assistir</a>
+          <button type="button" class="btn btn-glass" data-close-modal>Voltar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <script src="js/main.js"></script>
 </body>
